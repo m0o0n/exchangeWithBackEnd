@@ -1,0 +1,112 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  .courses {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .courses > *:first-child {
+    margin-left: 0;
+  }
+
+  .courses > *:last-child {
+    margin-right: 0;
+  }
+
+  .courses > * {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .course-item-title {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .course-item-value {
+    font-size: 32px;
+    font-weight: 300;
+  }
+
+  .course-item-value.top {
+    color: rgb(255, 51, 51);
+  }
+
+  .course-item-value.bottom {
+    color: rgb(19, 189, 61);
+  }
+</style>
+
+<div class="container pt-5 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card p-3">
+        <form>
+          <h1 class="h2 mb-4 row justify-content-center">Конвертер валют</h1>
+
+          <div class="courses">
+            <div class="course-item card card-body">
+              <div class="course-item-title row justify-content-center">
+                USD / UAH
+              </div>
+              <div
+                class="course-item-value row justify-content-center"
+                data-value="USD"
+              >
+                {{ FromBase.USD }}
+              </div>
+            </div>
+            <div class="course-item card card-body">
+              <div class="course-item-title row justify-content-center">
+                EUR / UAH
+              </div>
+              <div
+                class="course-item-value row justify-content-center"
+                data-value="EUR"
+              >
+                {{ FromBase.EUR }}
+              </div>
+            </div>
+            
+          </div>
+          <div class="row mb-1">
+            <app-curency-row
+              class="col"
+              [Cur]="BaseValue"
+              [FromBase]="FromBaseKeys"
+              [Change]="ChangeBaseValue"
+            ></app-curency-row>
+            <app-curency-row
+              class="col"
+              [Cur]="ToValue"
+              [FromBase]="FromBaseKeys"
+              [Change]="ChangeToValue"
+            ></app-curency-row>
+          </div>
+
+          <div class="row">
+            <app-custom-input
+              class="col"
+              [InpVal]="BaseInputValue"
+              [changeInpVal]="ChangeBaseInputValue"
+            ></app-custom-input>
+            <app-custom-input
+              class="col"
+              [InpVal]="ToInputValue"
+              [changeInpVal]="ChangeToInputValue"
+            ></app-custom-input>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

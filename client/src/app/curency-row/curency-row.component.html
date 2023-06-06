@@ -1,0 +1,13 @@
+<div class="col">
+  <label for="name">Отдаю</label>
+  <select
+    id="select"
+    class="form-control"
+    [(ngModel)]="Cur"
+    (ngModelChange)="Change($event)"
+  >
+    <option *ngFor="let cur of FromBase" [value]="cur">
+      {{ cur }}
+    </option>
+  </select>
+</div>
